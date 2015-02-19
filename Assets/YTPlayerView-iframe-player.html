@@ -17,14 +17,16 @@
 <html>
 <head>
     <style>
-    body { margin: 0; width:100%%; height:100%%; }
-    html { width:100%%; height:100%%; }
-    </style>
+        body { margin: 0; width:100%%; height:100%%; background-color: #000000; }
+        html { width:100%%; height:100%%; }
+        </style>
 </head>
 <body>
     <div id="player"></div>
+
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
+
         var player;
         var error = false;
 
@@ -39,6 +41,11 @@
 
     function onStateChange(event) {
         window.location.href = 'ytplayer://onStateChange?data=' + event.data;
+
+        if (event.data == YT.PlayerState.ENDED) {
+            // Force UIWebView's media player to exit fullscreen
+            player.destroy();
+        }
     }
 
     function onPlaybackQualityChange(event) {
