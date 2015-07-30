@@ -650,7 +650,7 @@ NSString static *const kYTPlayerAdUrlRegexPattern = @"^http(s)://pubads.g.double
   NSError *error = nil;
   NSString *path = [[NSBundle mainBundle] pathForResource:@"YTPlayerView-iframe-player"
                                                    ofType:@"html"
-                                              inDirectory:@"Assets"];
+                                              inDirectory:@"youtube-assets"];
   NSString *embedHTMLTemplate =
       [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
 
